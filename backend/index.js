@@ -12,9 +12,17 @@ app.set("trust proxy", 1);
 app.use(express.json());
 app.use(cookieParser());
 
+const rawOrigin = process.env.FRONTEND_ORIGIN || "http://localhost:3000";
+const allowedOrigins = rawOrigin.split(",").map((s) => s.trim()).filter(Boolean);
+const corsOrigin =
+  allowedOrigins.length === 0
+    ? "http://localhost:3000"
+    : allowedOrigins.length === 1
+      ? allowedOrigins[0]
+      : allowedOrigins;
 app.use(
   cors({
-    origin: process.env.FRONTEND_ORIGIN || "http://localhost:3000",
+    origin: corsOrigin,
     credentials: true,
   })
 );
