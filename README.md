@@ -114,8 +114,8 @@ web-login-challenge/
 - **MySQL** berjalan saat `npm install` backend (atau jalankan `npm run db:setup` setelah MySQL aktif)
 
 ### EMAIL & PASSWORD PENGUJIAN PADA SISTEM INI
-EMAIl = admin@mail.com
-PASSWWORD = 987654321
+EMAIL = admin@mail.com
+PASSWORD = 987654321
 
 ### Ringkasan
 
@@ -190,7 +190,7 @@ Buka **http://localhost:3000**.
 | `DB_HAS_USERNAME` | `true` jika tabel punya kolom `username` |
 | `SKIP_DB_AUTO_SETUP` | `true` — lewati skrip DB saat `npm install` |
 | `SKIP_DB_SEED` | `true` — tanpa user contoh |
-| `FRONTEND_ORIGIN` | CORS — satu URL atau beberapa dipisah koma (mis. production + preview Vercel) |
+| `FRONTEND_ORIGIN` | CORS (default `http://localhost:3000`) |
 | `NODE_ENV` | `development` / `production` (pengaruh cookie `secure`) |
 | `PORT` | Default `5000` |
 
@@ -289,57 +289,6 @@ npm test
 <p align="center">
   <img src="https://github.com/user-attachments/assets/79650769-1dd5-4f23-9d52-4ee8e5d2d8c7" width="300" />
 </p>
-
-### Deploy ke Vercel (Services — frontend + Express satu domain)
-
-Vercel **tidak menjalankan MySQL**. Anda perlu database MySQL **eksternal** (mis. [Railway](https://railway.app), [Aiven](https://aiven.io), PlanetScale/alternatif, atau VPS) lalu isi `DB_*` di environment variable **service backend**.
-
-#### 1. File `vercel.json` di root repo
-
-Sudah disediakan di root project. Isinya memetakan:
-
-| Service | Folder | Path URL |
-|---------|--------|----------|
-| Frontend (CRA) | `frontend/` | `/` |
-| Backend (Express) | `backend/` | `/_/backend` |
-
-API tetap di-mount `/api` di Express, jadi URL penuh di production: **`https://<domain-anda>.vercel.app/_/backend/api`**.
-
-#### 2. Di dashboard Vercel (New Project)
-
-1. Import repo GitHub, pilih branch `main`.
-2. **Framework Preset:** pilih **Services** (bukan hanya “Create React App”).
-3. **Root Directory:** `./` (root monorepo).
-4. Pastikan Vercel membaca **`vercel.json`** (commit & push file ini dulu kalau belum).
-
-#### 3. Environment variables
-
-Tambahkan variabel untuk **service backend** (dan pastikan tidak hanya tertempel di frontend saja):
-
-| Variabel | Keterangan |
-|----------|------------|
-| `JWT_SECRET` | String rahasia panjang (wajib). |
-| `NODE_ENV` | `production` |
-| `DB_HOST`, `DB_USER`, `DB_PASSWORD`, `DB_NAME` | Koneksi ke MySQL **hosted** (bukan localhost). |
-| `FRONTEND_ORIGIN` | Origin yang dipakai browser, mis. `https://nama-proyek.vercel.app`. Beberapa URL: `https://a.vercel.app,https://b.vercel.app` |
-| `DB_HAS_USERNAME` | `true` / `false` sesuai skema tabel. |
-
-Untuk **preview deployment**, gabungkan origin di satu variabel:  
-`FRONTEND_ORIGIN=https://proyek.vercel.app,https://proyek-git-main-xxx.vercel.app`
-
-Frontend: **`REACT_APP_API_URL` biasanya tidak wajib** — build production memakai path relatif `/_/backend/api` (satu domain dengan backend). Set manual hanya jika frontend dan API dipisah domain.
-
-#### 4. Deploy
-
-Klik **Deploy**. Setelah sukses, buat tabel + user di MySQL hosted (sama seperti lokal), lalu uji login.
-
-#### 5. Jika ada masalah
-
-- **403 / CORS:** pastikan `FRONTEND_ORIGIN` tepat (termasuk `https://`, tanpa slash akhir, cocok dengan URL di bilah alamat).
-- **502 / DB:** cek `DB_HOST` mengizinkan koneksi dari internet (whitelist IP Vercel jika perlu, atau host “publik” dari penyedia DB).
-- Dokumentasi resmi: [Vercel Services](https://vercel.com/docs/services) (fitur dapat berubah; `experimentalServices` = konfigurasi saat ini).
-
----
 
 ### Catatan production
 
