@@ -278,9 +278,10 @@ npm test
 <img width="1919" height="996" alt="image" src="https://github.com/user-attachments/assets/6ebe184d-4eec-45a6-bb1f-6a91cc97d242" />
 3. DASHBOARD LIGHT DESKTOP
 <img width="1918" height="994" alt="image" src="https://github.com/user-attachments/assets/a5b36878-ee34-41c2-9a29-357a466a4dbf" />
-4. LOGIN DAAN DASHBOARD DARK MODE MOBILE
+4. LOGIN DARK MODE MOBILE
 <img width="434" height="887" alt="image" src="https://github.com/user-attachments/assets/5baec735-0508-4593-93fa-098224b96c58" />
-<img width="454" height="903" alt="image" src="https://github.com/user-attachments/assets/79650769-1dd5-4f23-9d52-4ee8e5d2d8c7" />
+5. DASHBOARD DARK MODE MOBILE
+<img width="434" height="8873" alt="image" src="https://github.com/user-attachments/assets/79650769-1dd5-4f23-9d52-4ee8e5d2d8c7" />
 
 
 ### Catatan production
