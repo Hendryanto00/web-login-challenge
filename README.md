@@ -272,10 +272,15 @@ npm test
 **Rate limit (manual):** kirim lebih dari 5× `POST /api/login` dalam satu menit → respons limit.
 
 ### Screenshot UI
+1. LOGIN DARK MODE DESKTOP 
 <img width="1919" height="993" alt="image" src="https://github.com/user-attachments/assets/2e305340-c26f-439e-ab95-649a7f2d9e00" />
+2. LOGIN LIGHT MODE DESKTOP
 <img width="1919" height="996" alt="image" src="https://github.com/user-attachments/assets/6ebe184d-4eec-45a6-bb1f-6a91cc97d242" />
+3. DASHBOARD LIGHT DESKTOP
 <img width="1918" height="994" alt="image" src="https://github.com/user-attachments/assets/a5b36878-ee34-41c2-9a29-357a466a4dbf" />
+4. LOGIN DARK MODE MOBILE
 <img width="434" height="887" alt="image" src="https://github.com/user-attachments/assets/5baec735-0508-4593-93fa-098224b96c58" />
+4. DASHBOARD DARK MODE MOBILE
 <img width="454" height="903" alt="image" src="https://github.com/user-attachments/assets/79650769-1dd5-4f23-9d52-4ee8e5d2d8c7" />
 
 
