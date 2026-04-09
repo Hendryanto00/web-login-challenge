@@ -81,7 +81,6 @@ web-login-challenge/
 │   │   ├── utils/validation.js, validation.test.js
 │   │   ├── App.js, index.js
 │   └── .env.example
-├── docs/screenshots/
 └── README.md
 ```
 
@@ -113,6 +112,10 @@ web-login-challenge/
 
 - **Node.js** (LTS disarankan) dan **npm**
 - **MySQL** berjalan saat `npm install` backend (atau jalankan `npm run db:setup` setelah MySQL aktif)
+
+### EMAIL & PASSWORD PENGUJIAN PADA SISTEM INI
+EMAIl = admin@mail.com
+PASSWWORD = 987654321
 
 ### Ringkasan
 
