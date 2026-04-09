@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cegah overflow horizontal di seluruh halaman (mobile / Safari) */
+html {
+  overflow-x: hidden;
+  width: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Tinggi viewport dinamis + scroll vertikal aman */
+#root {
+  min-height: 100dvh;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
