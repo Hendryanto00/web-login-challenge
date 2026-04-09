@@ -81,7 +81,6 @@ web-login-challenge/
 │   │   ├── utils/validation.js, validation.test.js
 │   │   ├── App.js, index.js
 │   └── .env.example
-├── docs/screenshots/
 └── README.md
 ```
 
